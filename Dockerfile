@@ -5,7 +5,8 @@ FROM php:8.4-apache
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     unzip \
-    && docker-php-ext-install pdo pdo_pgsql
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo pdo_pgsql pgsql
 
 # Activation du module Apache Rewrite (important pour Laravel)
 RUN a2enmod rewrite
