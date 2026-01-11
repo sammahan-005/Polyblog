@@ -22,6 +22,8 @@ COPY . /var/www/html
 # Installation de Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
+RUN php artisan route:clear
+RUN php artisan config:clear
 
 # Permissions pour Laravel
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache

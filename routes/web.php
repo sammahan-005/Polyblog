@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,3 +32,9 @@ Route::post('/messages/{message}/report', ['App\Http\Controllers\MessageControll
 Route::get('/messages/{message}/comment', ['App\Http\Controllers\CommentController', 'create'])->name('comments.create')->middleware('auth');
 
 Route::post('/messages/{message}/comment', ['App\Http\Controllers\CommentController', 'store'])->name('comments.store')->middleware('auth');
+
+
+Route::get('/deploy-migrate', function () {
+    Artisan::call('migrate --force');
+    return "La migration est terminée ! " . Artisan::output();
+});
