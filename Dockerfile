@@ -1,5 +1,5 @@
 # On utilise une image PHP officielle avec Apache
-FROM php:8.2-apache
+FROM php:8.4-apache
 
 # Installation des dépendances système et des extensions PHP pour PostgreSQL
 RUN apt-get update && apt-get install -y \
