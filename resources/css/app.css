@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+
+
+
+/* Animation de la flèche et changement de texte */
+/* Cible l'icône quand le bouton est en mode "déplié" */
+.btn-toggle-arrow[aria-expanded="true"] i {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease; /* Animation fluide */
+}
+
+/* Style de base pour l'icône */
+.btn-toggle-arrow i {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+

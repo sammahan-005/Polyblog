@@ -1,0 +1,20 @@
+
+    /* Animation de la flèche et changement de texte */
+    .btn-toggle-arrow[aria-expanded="true"] i {
+        transform: rotate(180deg);
+    }
+    
+    .btn-toggle-arrow[aria-expanded="true"]::before {
+        content: "Voir moins ";
+    }
+    
+    .btn-toggle-arrow[aria-expanded="false"]::before {
+        content: "Voir plus ";
+    }
+
+    /* Supprime le texte "Voir plus" par défaut du span si on utilise le pseudo-élément */
+    .btn-toggle-arrow {
+        font-size: 0.85rem;
+    }
+    .btn-toggle-arrow span { display: none; }
+
