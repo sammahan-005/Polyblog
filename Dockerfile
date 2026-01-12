@@ -1,32 +1,26 @@
-# On utilise une image PHP officielle avec Apache
-FROM php:8.4-apache
+FROM php:8.2-fpm
 
 # Installation des dépendances système et des extensions PHP pour PostgreSQL
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     unzip \
-    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-install pdo pdo_pgsql pgsql
-
-# Activation du module Apache Rewrite (important pour Laravel)
-RUN a2enmod rewrite
-
-# On change le document root d'Apache vers le dossier /public de Laravel
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
-
-# Copie du projet dans le conteneur
-COPY . /var/www/html
+    git \
+    && docker-php-ext-install pdo pdo_pgsql
 
 # Installation de Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www/html
+COPY . .
+
+# Installation des dépendances PHP
 RUN composer install --no-dev --optimize-autoloader
-RUN php artisan route:clear
-RUN php artisan config:clear
 
-# Permissions pour Laravel
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# On donne les droits au serveur web
+RUN chown -R www-data:www-data storage bootstrap/cache
 
-# Port exposé
-EXPOSE 80
+# Port par défaut pour Render
+EXPOSE 8000
+
+# Commande de lancement (artisan serve suffit pour l'offre gratuite)
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000
