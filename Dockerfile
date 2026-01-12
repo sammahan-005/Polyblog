@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.4-fpm
 
 # Installation des dépendances système et des extensions PHP pour PostgreSQL
 RUN apt-get update && apt-get install -y \
