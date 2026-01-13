@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('content');
             $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(\App\Models\Message::class)->constrained()->cascadeOnDelete();
+            $table->foreignId('message_id')->constrained()->cascadeOnDelete();
             
         });
 
