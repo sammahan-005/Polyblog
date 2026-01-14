@@ -24,9 +24,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto align-items-center">
         
-        <li class="nav-item">
-          <a class="btn btn-warning btn-sm fw-bold px-3" href="{{ route('messages.create') }}">
-            + Nouveau Message
+        <li class="nav-item ms-lg-3">
+          <a class="btn btn-warning btn-sm fw-bold px-4 rounded-pill shadow-sm d-flex align-items-center gap-2" href="{{ route('messages.create') }}">
+              <i class="bi bi-plus-circle-fill"></i>
+              <span>Nouveau Message</span>
           </a>
         </li>
 
@@ -34,8 +35,10 @@
           
 
           <li class="nav-item ms-lg-3 d-flex align-items-center">
-            <span class="text-warning fw-bold me-2">{{ Auth::user()->name }}</span>
-            
+            <a href="{{ route('user.show') }}" class="text-decoration-none">
+              <span class="text-warning fw-bold me-2">{{ Auth::user()->name }}</span>
+            </a>
+
             <form action="{{ route('auth.logout') }}" method="post" class="d-inline">
               @csrf
               @method('delete')

@@ -15,6 +15,9 @@ Route::get('/inscription', function () {
 Route::get('/connexion', function () {
     return view('connexion');
 })->name('connexion')->middleware('guest');
+
+Route::get('/Usershow',['App\Http\Controllers\UserController','show'])->name('user.show')->middleware('auth');
+
 Route::post('/inscription', ['App\Http\Controllers\InscriptionController', 'store'])->name('inscription.submit')->middleware('guest');
 
 Route::post('/connexion', ['App\Http\Controllers\AuthController', 'authenticate'])->name('auth.login')->middleware('guest');
@@ -33,8 +36,3 @@ Route::get('/messages/{message}/comment', ['App\Http\Controllers\CommentControll
 
 Route::post('/messages/{message}/comment', ['App\Http\Controllers\CommentController', 'store'])->name('comments.store')->middleware('auth');
 
-
-Route::get('/deploy-migrate', function () {
-    Artisan::call('migrate --force');
-    return "La migration est terminée ! " . Artisan::output();
-});
