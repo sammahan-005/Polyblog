@@ -18,6 +18,7 @@ Route::get('/connexion', function () {
 
 Route::get('/Usershow',['App\Http\Controllers\UserController','show'])->name('user.show')->middleware('auth');
 
+
 Route::post('/inscription', ['App\Http\Controllers\InscriptionController', 'store'])->name('inscription.submit')->middleware('guest');
 
 Route::post('/connexion', ['App\Http\Controllers\AuthController', 'authenticate'])->name('auth.login')->middleware('guest');
@@ -25,7 +26,7 @@ Route::post('/connexion', ['App\Http\Controllers\AuthController', 'authenticate'
 Route::delete('/logout', ['App\Http\Controllers\AuthController', 'logout'])->name('auth.logout')->middleware('auth');
 
 Route::resource('messages', 'App\Http\Controllers\MessageController')->except([
-    'edit', 'destroy','update'
+    'edit','update'
 ])->middleware('auth');
 
 Route::post('/messages/{message}/like', ['App\Http\Controllers\MessageController', 'like'])->name('messages.like')->middleware('auth');

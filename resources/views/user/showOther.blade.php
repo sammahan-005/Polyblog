@@ -22,10 +22,7 @@
                     </div>
 
                     <h2 class="fw-bold text-dark mb-1">{{ $user->name }}</h2>
-                    
-                    @if ($user->id == Auth::id())
-                    <p class="text-muted mb-4">{{ $user->email }}</p>
-                    @endif
+
 
                     <div class="row g-3 mb-5">
                         <div class="col-6">
@@ -50,7 +47,7 @@
                                 <i class="bi bi-calendar-check me-3 text-secondary"></i>
                                 <span class="text-secondary">Inscrit le</span>
                             </div>
-                            <span class="fw-semibold text-dark">{{ $user->created_at->format('d F Y') }}</span>
+                            {{-- <span class="fw-semibold text-dark">{{ $user->created_at->format('d F Y') }}</span> --}}
                         </li>
                         <li class="list-group-item px-0 py-3 border-light d-flex justify-content-between align-items-center border-bottom-0">
                             <div class="d-flex align-items-center">
@@ -67,21 +64,7 @@
                             </span>
                         </li>
                     </ul>
-                     @if ($user->id == Auth::id())
-                    <div class="d-grid gap-3">
-                        <a href="#" class="btn btn-warning btn-lg rounded-pill fw-bold py-3 shadow-sm">
-                            <i class="bi bi-pencil-square me-2"></i> Modifier mes informations
-                        </a>
-                        <form action="{{ route('auth.logout') }}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-link text-danger text-decoration-none fw-semibold">
-                                <i class="bi bi-box-arrow-right me-1"></i> Déconnexion
-                            </button>
-                        </form>
-                    </div>
-                    @endif
-                </div>
+                     
             </div>
 
             <div class="text-center mt-4">

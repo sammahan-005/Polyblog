@@ -53,6 +53,14 @@ class MessageController extends Controller
         return view('messages.show',compact('message'));
     }
 
+    public function destroy(message $message)
+    {
+        if (Auth::id() === $message->user_id) {
+            $message->delete();
+        }
+        return back();
+    }
+
     public function like(message $message)
     {
         

@@ -14,4 +14,5 @@ class UserController extends Controller
         $user = User::with(['messages','comments'])->find(Auth::id());
         return view('user.show', compact('user'));
     }
+    
 }
