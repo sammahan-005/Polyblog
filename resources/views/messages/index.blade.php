@@ -57,7 +57,7 @@
                                         type="button" 
                                         data-bs-toggle="collapse" 
                                         data-bs-target="#collapseMsg{{ $message->id }}">
-                                    Lire plus
+                                    Pour lire la suite appuyer sur commentaire
                                 </button>
                             @endif
                         </div>

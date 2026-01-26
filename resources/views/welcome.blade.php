@@ -11,7 +11,7 @@
 
     <div class="container text-center p-5 shadow-lg rounded-4 bg-white border-top border-5 border-custom-primary" style="max-width: 600px;">
         <div class="mb-4">
-            <h1 class="display-5 fw-bold text-custom-primary">🕵️‍♂️ Mur Anonyme ENSPY</h1>
+            <h1 class="display-5 fw-bold text-custom-primary">🕵️‍♂️ Mur Anonyme </h1>
             <p class="lead mt-3">Rejoins la communauté et découvre ce que tout le monde pense… anonymement !</p>
             <p class="text-muted">Partage tes secrets, anecdotes et pensées sous un pseudo.</p>
             <p class="badge bg-custom-orange fs-6">Tout reste 100% anonyme !</p>

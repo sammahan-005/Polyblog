@@ -17,19 +17,19 @@
       Polyblog
     </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-center">
-        
-        <li class="nav-item ms-lg-3">
-          <a class="btn btn-warning btn-sm fw-bold px-4 rounded-pill shadow-sm d-flex align-items-center gap-2" href="{{ route('messages.create') }}">
+    <a class="btn btn-warning btn-sm fw-bold px-4 rounded-pill shadow-sm d-flex align-items-center gap-2" href="{{ route('messages.create') }}">
               <i class="bi bi-plus-circle-fill"></i>
               <span>Nouveau Message</span>
-          </a>
-        </li>
+    </a>
+
+    {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> --}}
+
+    {{-- <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center"> --}}
+        
+        
 
         @auth
           
@@ -53,8 +53,8 @@
           </li>
         @endguest
 
-      </ul>
-    </div>
+      {{-- </ul>
+    </div> --}}
   </div>
 </nav>
 

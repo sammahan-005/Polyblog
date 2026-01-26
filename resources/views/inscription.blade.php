@@ -23,18 +23,13 @@
                 'label' => 'Pseudo (Anonyme)',
                 'placeholder' => 'Ex: PolyTech_Ghost'
             ])
-            @include('shared.input', [
-                'type' => 'email',
-                'name' => 'email',
-                'label' => 'Adresse Email',
-                'placeholder' => 'nom@exemple.com'
-            ])
+            
 
             @include('shared.input', [
                 'type' => 'password',
                 'name' => 'password',
                 'label' => 'Mot de passe',
-                'placeholder' => 'Votre mot de passe sécurisé'
+                'placeholder' => 'Votre mot de passe ( 7 caracteres au moins)'
             ])
             
             <div class="d-grid gap-2 mt-4">

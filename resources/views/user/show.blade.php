@@ -23,9 +23,9 @@
 
                     <h2 class="fw-bold text-dark mb-1">{{ $user->name }}</h2>
                     
-                    @if ($user->id == Auth::id())
+                    {{-- @if ($user->id == Auth::id())
                     <p class="text-muted mb-4">{{ $user->email }}</p>
-                    @endif
+                    @endif --}}
 
                     <div class="row g-3 mb-5">
                         <div class="col-6">
@@ -69,9 +69,9 @@
                     </ul>
                      @if ($user->id == Auth::id())
                     <div class="d-grid gap-3">
-                        <a href="#" class="btn btn-warning btn-lg rounded-pill fw-bold py-3 shadow-sm">
+                        {{-- <a href="#" class="btn btn-warning btn-lg rounded-pill fw-bold py-3 shadow-sm">
                             <i class="bi bi-pencil-square me-2"></i> Modifier mes informations
-                        </a>
+                        </a> --}}
                         <form action="{{ route('auth.logout') }}" method="POST">
                             @csrf
                             @method('delete')
