@@ -76,13 +76,13 @@
                             <i class="bi bi-chat-dots"></i>
                             <span class="fw-bold">{{ $message->comments->count() ?? 0 }}</span>
                         </a>
-                        <form action="{{ route('messages.destroy', $message) }}" method="POST" onsubmit="return confirm('Supprimer ce message ?');">
+                        {{-- <form action="{{ route('messages.destroy', $message) }}" method="POST" onsubmit="return confirm('Supprimer ce message ?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm text-danger opacity-75 p-0 border-0 bg-transparent ms-2">
                                     <i class="bi bi-trash"></i>
                                 </button>
-                        </form>
+                        </form> --}}
 
                         <form action="{{ route('messages.report', ['message' => $message]) }}" method="POST">
                             @csrf
