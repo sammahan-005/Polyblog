@@ -14,7 +14,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
   <div class="container">
     <a class="navbar-brand fw-bold text-warning fs-3" href="/">
-      Blak Box
+      Black Box
     </a>
 
     <a class="btn btn-warning btn-sm fw-bold px-4 rounded-pill shadow-sm d-flex align-items-center gap-2" href="{{ route('messages.create') }}">
