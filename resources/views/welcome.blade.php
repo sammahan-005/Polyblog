@@ -33,9 +33,7 @@
                             Libère ton esprit sans compromettre ton image. 
                             <strong>La seule plateforme où les grades s'effacent devant les vérités.</strong>
                         </p>
-                        {{-- <p class="text-dark small fw-semibold text-uppercase mt-3">
-                            Secret partagé • Communauté soudée • 
-                        </p> --}}
+                        
                         <p class="text-secondary small text-uppercase fw-bold tracking-wider">
                            Identité protégée • Zéro jugement • 100% Liberté
                         </p>
