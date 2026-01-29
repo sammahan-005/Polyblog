@@ -11,7 +11,7 @@
     <div class="card shadow-sm p-4" style="max-width: 400px; width: 100%; border-radius: 15px;">
         <div class="text-center mb-4">
             <h2 class="fw-bold text-warning">Créer un compte</h2>
-            <p class="text-muted">Rejoins le mur anonyme de l'ENSPY</p>
+            <p class="text-dark mb-10">Rejoins la <span class="text-decoration-none text-dark fw-bold">Black Box</span></p>
         </div>
 
         <form action="{{ route('inscription.submit') }}" method="POST">
@@ -21,7 +21,7 @@
                 'type' => 'text',
                 'name' => 'name',
                 'label' => 'Pseudo (Anonyme)',
-                'placeholder' => 'Ex: PolyTech_Ghost'
+                'placeholder' => 'Ex: Dark_Ghost'
             ])
             
 

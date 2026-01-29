@@ -21,7 +21,7 @@
                 'type' => 'text',
                 'name' => 'name',
                 'label' => 'Pseudo (Anonyme)',
-                'placeholder' => 'Ex: PolyTech_Ghost'
+                'placeholder' => 'Ex: Dark_Ghost'
             ])
             @include('shared.input', [
                 'type' => 'password',

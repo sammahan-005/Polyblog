@@ -43,9 +43,9 @@
 
                         <div class="mb-3">
                             @php
-                                $isLong = strlen($message->content) > 120;
-                                $shortText = Str::limit($message->content, 120, '');
-                                $remainingText = substr($message->content, 120);
+                                $isLong = strlen($message->content) > 200;
+                                $shortText = Str::limit($message->content, 200, '');
+                                $remainingText = substr($message->content, 200);
                             @endphp
 
                             <p class="card-text text-secondary lh-base mb-0" style="font-size: 0.95rem;">
