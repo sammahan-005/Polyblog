@@ -9,6 +9,7 @@ class message extends Model
     protected $fillable = [
         'user_id',
         'content',
+        'community_id',
         
     ];
 
@@ -26,6 +27,10 @@ class message extends Model
 
     public function reports(){
         return $this->hasMany(report::class);
+    }
+
+    public function community(){
+        return $this->belongsTo(community::class);
     }
 
 

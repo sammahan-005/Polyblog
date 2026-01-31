@@ -1,26 +1,30 @@
 FROM php:8.4-fpm
 
-# Installation des dépendances système et des extensions PHP pour PostgreSQL
+# Installation des dépendances système nécessaires
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     unzip \
     git \
-    && docker-php-ext-install pdo pdo_pgsql
+    libzip-dev \
+    && docker-php-ext-install pdo pdo_pgsql zip
 
 # Installation de Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
+
+# Copie des fichiers de configuration en premier pour optimiser le cache des couches Docker
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-scripts --optimize-autoloader
+
+# Copie du reste de l'application
 COPY . .
 
-# Installation des dépendances PHP
-RUN composer install --no-dev --optimize-autoloader
+# Droits sur les dossiers de stockage (essentiel pour Laravel)
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# On donne les droits au serveur web
-RUN chown -R www-data:www-data storage bootstrap/cache
-
-# Port par défaut pour Render
+# Port utilisé par Render
 EXPOSE 8000
 
-# Commande de lancement (artisan serve suffit pour l'offre gratuite)
+# Script de démarrage plus robuste
 CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000

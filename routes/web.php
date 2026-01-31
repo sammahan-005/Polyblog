@@ -37,3 +37,10 @@ Route::get('/messages/{message}/comment', ['App\Http\Controllers\CommentControll
 
 Route::post('/messages/{message}/comment', ['App\Http\Controllers\CommentController', 'store'])->name('comments.store')->middleware('auth');
 
+Route::resource('communities', 'App\Http\Controllers\CommunityController')->except([
+    'edit','update','delete'
+])->middleware('auth');
+
+Route::get('/communities/{community}/messages/create', ['App\Http\Controllers\MessageController', 'createForCommunity'])->name('messages.community.create')->middleware('auth');
+
+Route::post('/communities/{community}/store', ['App\Http\Controllers\MessageController', 'storeForCommunity'])->name('messages.community.store')->middleware('auth');

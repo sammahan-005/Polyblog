@@ -91,5 +91,20 @@ class MessageController extends Controller
         return back();
     }
 
+    public function createForCommunity($community){
+        // dd($community);
+        return view('messages.community.create', ['community' => $community]);
+    }
+
+    public function storeForCommunity($community, MessageRequest $request){
+        // dd($community);
+        $message = message::create([
+            'user_id'=>Auth::id(),
+            'content' => $request->validated('content'),
+            'community_id' => $community,
+        ]);
+        return redirect()->route('communities.show', $community);
+    }
+
     
 }

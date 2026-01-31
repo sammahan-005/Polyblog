@@ -10,7 +10,7 @@
             <i class="bi bi-chat-right-quote-fill text-warning fs-4"></i>
         </div>
         <h2 class="h3 fw-bold text-dark mb-0">
-            {{ __('Last Messages') }}
+            {{ __('Derniers messages publiques') }}
         </h2>
     </div>
 
@@ -24,6 +24,8 @@
 <div class="container my-5">
     <div class="row g-4">
         @foreach ($messages as $message)
+        @if(!($message->community_id))
+            
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 border border-light-subtle shadow-sm rounded-4">
                     
@@ -93,6 +95,7 @@
                     </div>
                 </div>
             </div>
+        @endif    
         @endforeach
     </div>
 </div>
