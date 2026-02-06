@@ -16,7 +16,7 @@
 
         <form action="{{ route('auth.login') }}" method="POST">
             @csrf
-            @method('post')
+            
             @include('shared.input', [
                 'type' => 'text',
                 'name' => 'name',
