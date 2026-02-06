@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('communities', function (Blueprint $table) {
             $table->boolean('is_private')->default(false)->nullable();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->default(1);
         });
 
         Schema::create('community_user', function (Blueprint $table) {
