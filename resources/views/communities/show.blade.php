@@ -40,7 +40,7 @@
 
             <span class="badge rounded-pill fw-bold" style="background-color: {{ $community->color }}15; color: {{ $community->color }}; font-size: 0.7rem; letter-spacing: 0.5px;">
 
-                {{ $community->owner->name ?? 'Anonyme' }}
+                {{ $community->user->name ?? 'Anonyme' }}
 
             </span>
 
