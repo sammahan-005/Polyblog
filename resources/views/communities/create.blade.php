@@ -47,6 +47,78 @@
                         </div>
                     </div>
 
+                    <div class="mb-4">
+                        <label class="form-label fw-black text-uppercase small px-2 text-dark" style="letter-spacing: 1px;">
+                            Confidentialité de l'espace
+                        </label>
+                        
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <input type="radio" class="btn-check" name="is_private" id="public" value="0" checked autocomplete="off">
+                                <label class="btn btn-outline-dark w-100 py-3 rounded-4 d-flex flex-column align-items-center gap-2 visibility-card shadow-sm" for="public">
+                                    <i class="bi bi-globe2 fs-3"></i>
+                                    <span class="fw-bold small">PUBLIQUE</span>
+                                </label>
+                            </div>
+
+                            <div class="col-6">
+                                <input type="radio" class="btn-check" name="is_private" id="private" value="1" autocomplete="off">
+                                <label class="btn btn-outline-dark w-100 py-3 rounded-4 d-flex flex-column align-items-center gap-2 visibility-card shadow-sm" for="private">
+                                    <i class="bi bi-shield-lock-fill fs-3"></i>
+                                    <span class="fw-bold small">PRIVÉE</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <small class="text-muted italic opacity-75" id="visibility-desc">
+                                Visible par tous sur l'index des communautés.
+                            </small>
+                        </div>
+                    </div>
+
+                    <style>
+                        .fw-black { font-weight: 900; }
+                        
+                        
+                        .visibility-card {
+                            border: 2px solid #eee !important;
+                            background-color: #f8f9fa;
+                            color: #6c757d;
+                            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                        }
+
+                        .visibility-card:hover {
+                            background-color: #fff;
+                            border-color: #ffc107 !important;
+                            color: #000;
+                            transform: translateY(-3px);
+                        }
+
+                        
+                        .btn-check:checked + .visibility-card {
+                            background-color: #fff !important;
+                            border-color: #ffc107 !important;
+                            color: #000 !important;
+                            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.2) !important;
+                        }
+
+                        .btn-check:checked + .visibility-card i {
+                            color: #ffc107;
+                        }
+                    </style>
+
+                    <script>
+                       
+                        document.querySelectorAll('input[name="is_private"]').forEach(input => {
+                            input.addEventListener('change', (e) => {
+                                const desc = document.getElementById('visibility-desc');
+                                desc.textContent = e.target.id === 'public' 
+                                    ? "Visible par tous sur l'index des communautés." 
+                                    : "Seuls ceux possédant le lien direct pourront y accéder.";
+                            });
+                        });
+                    </script>
+
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-dark btn-lg fw-bold rounded-pill py-3 shadow">
                             CRÉER L'ESPACE

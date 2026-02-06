@@ -69,6 +69,11 @@
                     <i class="bi bi-bell-fill fs-4"></i>
                     <span style="font-size: 0.75rem;">Notifs</span>
                     <span class="position-absolute top-0 start-50 translate-middle-x ms-2 p-1 bg-danger rounded-circle border border-dark" style="width: 8px; height: 8px;"></span>
+                </a>
+
+                <a href="#" class="btn btn-outline-light border-0 d-flex flex-column align-items-center fw-bold small">
+                    <i class="bi bi-bell fs-4"></i>
+                    <span style="font-size: 0.75rem;">Notifs</span>
                 </a> --}}
 
             </div>

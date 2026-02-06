@@ -25,6 +25,7 @@ class CommunityRequest extends FormRequest
             'name' => 'required|string|max:255|unique:communities,name',
             'description' => 'required|string',
             'color' => 'required|string|max:7',
+            'is_private' => 'required|boolean',
         ];
     }
 }

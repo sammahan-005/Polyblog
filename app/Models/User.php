@@ -61,4 +61,18 @@ class User extends Authenticatable
     public function reports(){
         return $this->hasMany(report::class);
     }
+
+    public function ownedcommunities(){
+        return $this->hasMany(community::class);
+    }
+
+    public function communities(){
+        return $this->belongsToMany(community::class, 'community_user');
+    }
+
+    
+
+    public function demandes(){
+        return $this->hasMany(demande::class);
+    }
 }

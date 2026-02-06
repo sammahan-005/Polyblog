@@ -2,7 +2,7 @@
 
 @section('title', 'Create')
 @section('content')
-    <h1>Créer un nouveau message</h1>
+    <h1>Nouveau message dans la communauté</h1>
 
     <form action="{{ route('messages.community.store', $community) }}" method="POST">
         @csrf
