@@ -10,11 +10,15 @@
         <p class="text-secondary lead fw-bold text-uppercase" style="letter-spacing: 3px; font-size: 0.9rem;">
             Entrez dans les sphères de la <span class="text-warning">Black Box</span>
         </p>
-        <div class="mt-4">
-            <a href="{{ route('communities.create') }}" class="btn btn-dark btn-lg rounded-pill px-5 py-3 shadow-lg border-2 border-warning transition-up">
-                <i class="bi bi-patch-plus-fill me-2 text-warning"></i> CRÉER UN NOUVEL ESPACE
-            </a>
-        </div>
+        @if($communities->isNotEmpty())
+            <div class="mt-4">
+                <a href="{{ route('communities.create') }}" class="btn btn-dark btn-lg rounded-pill px-5 py-3 shadow-lg border-2 border-warning transition-up">
+                    <i class="bi bi-patch-plus-fill me-2 text-warning"></i> CRÉER UN NOUVEL ESPACE
+                </a>
+            </div> 
+        
+        @endif
+        
     </div>
 
     <div class="row g-4">
@@ -30,7 +34,11 @@
                             </div>
                             <div class="px-3 py-1 rounded-pill fw-bold small shadow-sm" 
                                  style="background-color: white; color: {{ $community->color }}; border: 1px solid {{ $community->color }}40;">
-                                <i class="bi bi-fire me-1"></i> Actif
+                                @if($community->is_private)
+                                    <i class="bi bi-lock-fill me-1"></i> Privé
+                                @else
+                                    <i class="bi bi-globe-americas me-1"></i> Public
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -39,8 +39,20 @@ Route::post('/messages/{message}/comment', ['App\Http\Controllers\CommentControl
 
 Route::resource('communities', 'App\Http\Controllers\CommunityController')->except([
     'edit','update','delete'
-])->middleware('auth');
+])->middleware('auth')->middleware(App\Http\Middleware\CheckCommunityMembership::class);
 
 Route::get('/communities/{community}/messages/create', ['App\Http\Controllers\MessageController', 'createForCommunity'])->name('messages.community.create')->middleware('auth');
 
 Route::post('/communities/{community}/store', ['App\Http\Controllers\MessageController', 'storeForCommunity'])->name('messages.community.store')->middleware('auth');
+
+Route::get('/communities/{community}/adhesion', ['App\Http\Controllers\CommunityController', 'adhesion'])->name('communities.adhesion')->middleware('auth');
+
+Route::get('/communities/{community}/adhesionsent', ['App\Http\Controllers\CommunityController', 'adhesionSent'])->name('communities.adhesionsent')->middleware('auth');
+
+Route::post('/communities/{community}/joinrequest', ['App\Http\Controllers\CommunityController', 'joinRequest'])->name('communities.joinrequest')->middleware('auth');
+
+Route::get('/communities/{community}/manage', ['App\Http\Controllers\CommunityController', 'manage'])->name('communities.demandes.index')->middleware('auth');
+
+Route::post('/communities/{community}/manage/{demande}/accept', ['App\Http\Controllers\CommunityController', 'acceptDemande'])->name('communities.demandes.accept')->middleware('auth');
+
+Route::delete('/communities/{community}/manage/{demande}/refuse', ['App\Http\Controllers\CommunityController', 'refuseDemande'])->name('communities.demandes.refuse')->middleware('auth');
