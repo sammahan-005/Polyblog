@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -13,7 +14,14 @@ return new class extends Migration
     {
         Schema::table('communities', function (Blueprint $table) {
             $table->boolean('is_private')->default(false)->nullable();
-            $table->foreignId('user_id')->constrained('users')->default(1)->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->nullable()->cascadeOnDelete();
+            DB::table('communities')->update(['user_id' => 1]);
+            
+        });
+
+        Schema::table('communities', function (Blueprint $table) {
+        
+        $table->foreignId('user_id')->nullable(false)->change();
         });
 
         Schema::create('community_user', function (Blueprint $table) {
