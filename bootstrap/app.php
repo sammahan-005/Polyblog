@@ -15,7 +15,10 @@ return Application::configure(basePath: dirname(__DIR__))
             users:  '/messages',
             guests: '/connexion',
         );
+        $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
+
+    
