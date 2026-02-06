@@ -17,7 +17,7 @@
     <div>
         <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis border border-warning-subtle px-3 py-2">
             <i class="bi bi-funnel-fill me-1"></i>
-            {{ trans_choice('{0} Aucun message|{1} 1 message au total|[2,*] :count messages au total', $messages->count(), ['count' => $messages->count()]) }}
+            {{ trans_choice('{0} Aucun message|{1} 1 message au total|[2,*] :count messages au total', $messages->where('community_id', null)->count(), ['count' => $messages->where('community_id', null)->count()]) }}
         </span>
     </div>
 </div>
