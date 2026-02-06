@@ -26,5 +26,5 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 # Port utilisé par Render
 EXPOSE 8000
 
-# Script de démarrage plus robuste
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000
+# Script de démarrage modifié pour nettoyer le cache et stabiliser le CSRF
+CMD php artisan config:cache && php artisan route:cache && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000
