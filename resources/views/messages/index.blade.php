@@ -23,6 +23,112 @@
 </div>
 <div class="container my-5">
     <div class="row g-4">
+        <div class="row justify-content-center mb-5 mt-n2">
+    <div class="col-lg-11">
+        <div class="card border-0 shadow-lg rounded-5 overflow-hidden contest-card">
+            <div class="card-body p-4 p-md-5 position-relative">
+                
+                <div class="floating-heart opacity-25 position-absolute top-0 end-0 m-4 d-none d-md-block">
+                    <i class="bi bi-heart-fill text-white" style="font-size: 8rem;"></i>
+                </div>
+                
+                <div class="position-relative" style="z-index: 2;">
+                    <div class="text-center text-md-start mb-4">
+                        <span class="badge bg-white text-danger fw-black px-3 py-2 rounded-pill shadow-sm mb-3">
+                            <i class="bi bi-trophy-fill me-1"></i> CONCOURS SPÉCIAL SV
+                        </span>
+                        <h2 class="display-4 fw-black text-white ls-tight">
+                            GAGNE JUSQU'À <span class="text-warning">5 000 FCFA</span> / JOUR
+                        </h2>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-4">
+                            <div class="bg-white bg-opacity-10 border border-white border-opacity-25 rounded-4 p-3 h-100">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="badge rounded-circle bg-warning text-dark fw-black p-0 d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">1</span>
+                                    <p class="text-white small mb-0 fw-bold">Poste un message <span class="text-warning">public</span> dans une box.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="bg-white bg-opacity-10 border border-white border-opacity-25 rounded-4 p-3 h-100">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="badge rounded-circle bg-warning text-dark fw-black p-0 d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">2</span>
+                                    <p class="text-white small mb-0 fw-bold">Partage le lien dans <span class="text-warning">5 groupes</span> WhatsApp.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="bg-white bg-opacity-10 border border-white border-opacity-25 rounded-4 p-3 h-100">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="badge rounded-circle bg-warning text-dark fw-black p-0 d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">3</span>
+                                    <p class="text-white small mb-0 fw-bold">Envoie les preuves au <span class="text-warning">693756039</span>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-md-start">
+    <a href="https://wa.me/237693756039?text=Salut!%20Voici%20la%20preuve%20pour%20le%20concours%20Saint%20Valentin" 
+       class="btn btn-warning btn-lg rounded-pill px-4 py-3 fw-black shadow-lg hover-scale text-dark flex-grow-1">
+        <i class="bi bi-whatsapp me-2"></i>ENVOYER MA PREUVE
+    </a>
+
+    <a href="{{ route('concours.share') }}" class="btn btn-outline-light btn-lg rounded-pill px-4 py-3 fw-black shadow-sm hover-scale flex-grow-1">
+    <i class="bi bi-share-fill me-2"></i>PARTAGER LE LIEN
+    </a>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    .fw-black { font-weight: 950; }
+    .ls-tight { letter-spacing: -2px; }
+
+    .contest-card {
+        background: linear-gradient(135deg, #d31027 0%, #ea384d 100%);
+        border: 4px solid #fff !important;
+    }
+
+    .floating-heart {
+        animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); opacity: 0.2; }
+        50% { transform: translateY(-15px); opacity: 0.4; }
+    }
+
+    .hover-scale {
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .hover-scale:hover {
+        transform: scale(1.05);
+        background-color: #ffffff !important;
+        border-color: #ffffff !important;
+    }
+
+    /* Animation d'entrée */
+    .contest-card {
+        animation: heartBeat 1.5s ease-in-out;
+    }
+
+    @keyframes heartBeat {
+        0% { transform: scale(0.95); }
+        5% { transform: scale(1.05); }
+        10% { transform: scale(0.95); }
+        15% { transform: scale(1.05); }
+        20% { transform: scale(1); }
+    }
+</style>
         @foreach ($messages as $message)
         @if(!($message->community_id))
             
