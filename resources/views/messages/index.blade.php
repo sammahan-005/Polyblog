@@ -21,7 +21,7 @@
         </span>
     </div>
 </div>
-<div class="container my-5">
+{{-- <div class="container my-5">
     <div class="row g-4">
         <div class="row justify-content-center mb-5 mt-n2">
     <div class="col-lg-11">
@@ -128,7 +128,7 @@
         15% { transform: scale(1.05); }
         20% { transform: scale(1); }
     }
-</style>
+</style> --}}
         @foreach ($messages as $message)
         @if(!($message->community_id))
             
